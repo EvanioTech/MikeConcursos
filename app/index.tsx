@@ -9,7 +9,7 @@ const welcomePage = () => {
     <View style={styles.container}>
       <Text style={{fontSize: 20, color: '#0c0909'}}>Mike Concursos</Text>
         <StatusBar style="auto" />
-        <TouchableOpacity style={styles.button} onPress={() => router.push('(tabs)')}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('(auth)/siginIn')}>
             <Text>Iniciar Jornada!</Text>
         </TouchableOpacity>
     </View>
