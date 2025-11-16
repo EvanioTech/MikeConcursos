@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, StatusBar, TouchableOpacity , Image} from 'react-native'
-import React, { useEffect } from 'react'
-import { useRouter } from 'expo-router'
+import { View, Text, StyleSheet, StatusBar, TouchableOpacity , Image, Platform} from 'react-native';
+import React, { useEffect, useState } from 'react'; // Importamos useState
+import { useRouter } from 'expo-router';
 import Animated, {
   useSharedValue, 
   useAnimatedStyle, 
@@ -9,38 +9,55 @@ import Animated, {
   Easing 
 } from 'react-native-reanimated';
 
+// 1. Importe o componente de carregamento
+import LoadingScreen from '../components/loadingScreen';
+
 const welcomePage = () => {
-  const router = useRouter()
-  // 1. Criar um valor compartilhado para a opacidade
+  const router = useRouter();
+  
+  // 2. Adicione o estado para controlar o carregamento
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Animação de Fade do Botão (como antes)
   const opacity = useSharedValue(0);
+  const animatedStyle = useAnimatedStyle(() => ({ opacity: opacity.value }));
 
-  // 2. Definir o estilo animado que usa o valor compartilhado
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: opacity.value,
-    };
-  });
-
-  // 3. Usar useEffect para iniciar a animação
   useEffect(() => {
-    // Alterna a opacidade entre 1 (visível) e 0 (invisível)
     opacity.value = withRepeat(
-      withTiming(1, { duration: 1000, easing: Easing.linear }), // Fade In
-      -1, // Repetição infinita
-      true // Reverte a animação a cada repetição (Fade Out)
+      withTiming(1, { duration: 1000, easing: Easing.linear }),
+      -1,
+      true
     );
   }, []);
 
+  // 3. Função para Iniciar a Transição e o Loading
+  const handleStartJourney = () => {
+    setIsLoading(true); // Ativa a tela de loading
+    
+    // Configura um atraso (ex: 2000ms = 2 segundos) para exibir o GIF
+    setTimeout(() => {
+      router.push('(auth)/siginIn'); // Navega após o atraso
+      // Você pode opcionalmente redefinir o isLoading para false aqui,
+      // mas como o componente será desmontado, não é estritamente necessário.
+    }, 2000); 
+  };
+  
+  // 4. Se estiver carregando, exibe apenas a tela de Loading
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  // 5. Se NÃO estiver carregando, exibe a tela de boas-vindas
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mike Concursos</Text>
         <StatusBar style="auto" />
         
-        {/* Aplica o estilo animado de opacidade no Animated.View */}
         <Animated.View style={[styles.box, animatedStyle]}>
           <TouchableOpacity 
             style={styles.button} 
-            onPress={() => router.push('(auth)/siginIn')}
+            // 6. Altere o onPress para chamar a nova função
+            onPress={handleStartJourney}
           >
             <Text style={styles.buttonText}>Iniciar Jornada!</Text>
           </TouchableOpacity>
@@ -51,10 +68,9 @@ const welcomePage = () => {
           source={require('../assets/images/go.jpg')}
         />
     </View>
-  )
-}
+  );
+};
 
-// ... (Restante dos estilos permanece o mesmo)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -68,9 +84,19 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         borderRadius: 5,
         borderWidth: 2,
-        borderColor: 'rgba(223, 239, 241, 0.1)',
-        // As propriedades de sombra (boxShadow) são específicas da web e podem ser ignoradas ou substituídas
-        // por `elevation` (Android) ou `shadow*` (iOS) no React Native padrão.
+        borderColor: 'rgba(24, 202, 233, 0.1)',
+        backgroundColor: 'black',
+        ...Platform.select({
+            ios: {
+                shadowColor: '#f6f9fc',
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.7,
+                shadowRadius: 14,
+            },
+            android: {
+                elevation: 14,
+            },
+        }),
     },
     buttonText: {
         color: '#f2f4f5',
@@ -88,10 +114,7 @@ const styles = StyleSheet.create({
         height: 590,
         marginTop: 30,
     },
-    // Adicionei um estilo 'box' vazio pois ele era referenciado no seu Animated.View original
-    box: {
-      // Este estilo pode ser ajustado se o Animated.View precisar de dimensões específicas
-    }
-})
+    box: {}
+});
 
-export default welcomePage
+export default welcomePage;
