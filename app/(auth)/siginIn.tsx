@@ -20,7 +20,7 @@ const siginIn = () => {
     
     // Configura um atraso (ex: 2000ms = 2 segundos) para exibir o GIF
     setTimeout(() => {
-      router.push('(tabs)'); // Navega após o atraso
+      router.push('/(tabs)'); // Navega após o atraso
       // Você pode opcionalmente redefinir o isLoading para false aqui,
       // mas como o componente será desmontado, não é estritamente necessário.
     }, 3000); 
@@ -55,7 +55,7 @@ const siginIn = () => {
 
       </View>
       <Text>siginIn</Text>
-      <TouchableOpacity onPress={() => router.push('siginUp')}>
+      <TouchableOpacity onPress={() => router.push('/(auth)/siginUp')}>
         <Text style={styles.textButton}>Go to Sigin Up</Text>
       </TouchableOpacity>
     </View>

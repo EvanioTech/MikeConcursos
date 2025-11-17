@@ -8,7 +8,7 @@ const siginUp = () => {
   return (
     <View style={styles.container}>
       <Text>siginUp</Text>
-      <TouchableOpacity onPress={() => router.push('(tabs)')}>
+      <TouchableOpacity onPress={() => router.push('/(tabs)')}>
         <Text>Go to Home </Text>
       </TouchableOpacity>
     </View>

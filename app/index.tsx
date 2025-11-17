@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, StatusBar, TouchableOpacity , Image, Platform} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity , Image, Platform} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react'; // Importamos useState
 import { useRouter } from 'expo-router';
 import Animated, {
@@ -36,7 +37,7 @@ const welcomePage = () => {
     
     // Configura um atraso (ex: 2000ms = 2 segundos) para exibir o GIF
     setTimeout(() => {
-      router.push('(auth)/siginIn'); // Navega após o atraso
+      return router.push('/(auth)/siginIn'); // Navega após o atraso
       // Você pode opcionalmente redefinir o isLoading para false aqui,
       // mas como o componente será desmontado, não é estritamente necessário.
     }, 2000); 
