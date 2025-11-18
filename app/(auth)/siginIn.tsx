@@ -25,6 +25,13 @@ const siginIn = () => {
       // mas como o componente será desmontado, não é estritamente necessário.
     }, 3000); 
   };
+
+  const handleLoginNavigation = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      router.push('/(auth)/siginUp');
+    }, 3000);
+  }
   
   // 4. Se estiver carregando, exibe apenas a tela de Loading
   if (isLoading) {
@@ -55,8 +62,8 @@ const siginIn = () => {
 
       </View>
       <Text>siginIn</Text>
-      <TouchableOpacity onPress={() => router.push('/(auth)/siginUp')}>
-        <Text style={styles.textButton}>Go to Sigin Up</Text>
+      <TouchableOpacity onPress={handleLoginNavigation}>
+        <Text style={styles.textButton}>Ja possui uma conta? Faça login</Text>
       </TouchableOpacity>
     </View>
   )
@@ -93,8 +100,8 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     textButton: {
-        color: '#00ffff',
-        fontSize: 18,
+        color: '#ffff',
+        fontSize: 12,
         fontWeight: 'bold',
     },
     button: {
