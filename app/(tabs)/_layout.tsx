@@ -37,7 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="time"
         options={{
-          
+          title: 'Time',
           tabBarIcon: ({ color }) => <TabBarIcon name="hourglass" color={color} />,
           
         }}
@@ -45,7 +45,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="ciclo"
         options={{
-          
+          title: 'Ciclo',
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
           
         }}
@@ -53,7 +53,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
+          title: 'Perfil',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
