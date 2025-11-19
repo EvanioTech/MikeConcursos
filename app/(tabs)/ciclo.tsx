@@ -1,10 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import CardCiclo from '@/components/cardCiclo';
+
 
 const TabCiclo = () => {
   return (
     <View style={styles.container}>
-      <Text>Page ciclo de estudos</Text>
+      <CardCiclo />
+      <CardCiclo />
+      <CardCiclo />
     </View>
   )
 }
