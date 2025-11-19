@@ -6,9 +6,9 @@ import CardCiclo from '@/components/cardCiclo';
 const TabCiclo = () => {
   return (
     <View style={styles.container}>
-      <CardCiclo />
-      <CardCiclo />
-      <CardCiclo />
+      <CardCiclo Title='Portugues' />
+      <CardCiclo Title='Matematica' />
+      <CardCiclo Title='Historia' />
     </View>
   )
 }

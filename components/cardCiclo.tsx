@@ -1,18 +1,22 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const CardCiclo = () => {
+// 1. Defina o Type ou Interface fora do componente (boas práticas)
+type Props = {
+    Title: string;
+}
+
+// 2. Associe o tipo Props ao argumento da função
+const CardCiclo = ({ Title }: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>cardCiclo</Text>
+      <Text style={styles.text}>{Title}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-
     container: {
-        
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
@@ -30,7 +34,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'black',
     },
-
 })
 
 export default CardCiclo
