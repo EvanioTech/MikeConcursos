@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
+import Stopwatch from '@/components/stopwatch'
 
-const time = () => {
+const TabTime = () => {
   return (
     <View style={styles.container}>
-      <Ionicons name="hourglass" size={100} color="#fff" />
-      <Text style={{color: '#fff'}}>Time Screen</Text>
+      <Stopwatch />
     </View>
   )
 }
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0f0101',
+    backgroundColor: 'black',
   },
 });
-export default time
+export default TabTime

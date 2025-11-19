@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const ciclo = () => {
+const TabCiclo = () => {
   return (
     <View style={styles.container}>
       <Text>Page ciclo de estudos</Text>
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ciclo
+export default TabCiclo
