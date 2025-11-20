@@ -1,10 +1,13 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
+import { useRouter } from 'expo-router'
 
 import { Text, View } from '@/components/Themed';
 import { Ionicons } from '@expo/vector-icons';
 
+
 export default function TabProfile() {
+  const router = useRouter();
 
   const qra = 'Matias';
   return (
@@ -18,7 +21,7 @@ export default function TabProfile() {
       <TouchableOpacity style ={styles.button}>
         <Text>Editar Perfil</Text>
       </TouchableOpacity>
-      <TouchableOpacity style ={styles.button}>
+      <TouchableOpacity style ={styles.button} onPress={()=> router.push("/siginUp")}>
         <Text>Sair</Text>
       </TouchableOpacity>
       
