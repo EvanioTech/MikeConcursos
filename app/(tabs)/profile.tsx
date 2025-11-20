@@ -13,6 +13,9 @@ export default function TabProfile() {
       <Text style={styles.title}>{qra}</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <TouchableOpacity style ={styles.button}>
+        <Text>Adiquirir Versão Pro <Ionicons name="skull" size={20} color="white" /></Text>
+      </TouchableOpacity>
+      <TouchableOpacity style ={styles.button}>
         <Text>Editar Perfil</Text>
       </TouchableOpacity>
       <TouchableOpacity style ={styles.button}>
