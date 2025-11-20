@@ -105,7 +105,7 @@ const Stopwatch = () => {
           <Text style={styles.title}>Configurações (min)</Text>
           
           <View style={styles.inputGroup}>
-            <Text>Foco:</Text>
+            <Text style={styles.label}>Foco:</Text>
             <TextInput 
               style={styles.input} 
               keyboardType="numeric" 
@@ -115,7 +115,7 @@ const Stopwatch = () => {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text>Pausa Curta:</Text>
+            <Text style={styles.label}>Pausa Curta:</Text>
             <TextInput 
               style={styles.input} 
               keyboardType="numeric" 
@@ -125,7 +125,7 @@ const Stopwatch = () => {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text>Pausa Longa:</Text>
+            <Text style={styles.label}>Pausa Longa:</Text>
             <TextInput 
               style={styles.input} 
               keyboardType="numeric" 
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#0f0101',
+    backgroundColor: 'black',
   },
   header: {
     alignItems: 'center',
@@ -192,6 +192,12 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 30,
+    color: 'white',
+  },
+  label: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: 'white',
   },
   statusText: {
     fontSize: 24,

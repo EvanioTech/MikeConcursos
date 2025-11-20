@@ -1,14 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import CardCiclo from '@/components/cardCiclo';
 
-
-const TabCiclo = () => {
+const performance = () => {
   return (
     <View style={styles.container}>
-      <CardCiclo Title='Portugues' />
-      <CardCiclo Title='Matematica' />
-      <CardCiclo Title='Historia' />
+      <Text style={styles.text}>performance</Text>
     </View>
   )
 }
@@ -19,8 +15,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
 
-export default TabCiclo
+export default performance

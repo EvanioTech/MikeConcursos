@@ -1,13 +1,24 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 
 import { Text, View } from '@/components/Themed';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabProfile() {
+
+  const qra = 'Matias';
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Profile</Text>
+      <Ionicons name="skull" size={100} color="white" />
+      <Text style={styles.title}>{qra}</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <TouchableOpacity style ={styles.button}>
+        <Text>Editar Perfil</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style ={styles.button}>
+        <Text>Sair</Text>
+      </TouchableOpacity>
+      
       
     </View>
   );
@@ -27,5 +38,15 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  button: {
+    
+    marginTop: 20,
+    borderWidth: 1,
+    borderColor: 'white',
+    width: "90%",
+    alignItems: 'center',
+    borderRadius: 5,
+    padding: 20,
   },
 });

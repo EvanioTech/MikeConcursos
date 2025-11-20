@@ -43,6 +43,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="performance"
+        options={{
+          title: 'Desempenho',
+          tabBarIcon: ({ color }) => <TabBarIcon name="tachometer" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="ciclo"
         options={{
           title: 'Ciclo',
