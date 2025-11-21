@@ -15,10 +15,10 @@ export default function TabProfile() {
       <Ionicons name="skull" size={100} color="white" />
       <Text style={styles.title}>{qra}</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <TouchableOpacity style ={styles.button}>
+      <TouchableOpacity style ={styles.button} onPress={()=> router.push("/versionPro")}>
         <Text>Adiquirir Versão Pro <Ionicons name="skull" size={20} color="white" /></Text>
       </TouchableOpacity>
-      <TouchableOpacity style ={styles.button}>
+      <TouchableOpacity style ={styles.button} onPress={()=> router.push("/editUser")}>
         <Text>Editar Perfil</Text>
       </TouchableOpacity>
       <TouchableOpacity style ={styles.button} onPress={()=> router.push("/siginUp")}>
